@@ -5,6 +5,16 @@ import base64, io
 from PIL import Image
 import requests
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 🔒 In production, replace with your actual extension ID
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app = FastAPI()
 
