@@ -7,6 +7,9 @@ import requests
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
+
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # 🔒 In production, replace with your actual extension ID
@@ -15,8 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-app = FastAPI()
 
 # Initialize PaddleOCR (English, enable angle detection)
 ocr = PaddleOCR(use_angle_cls=True, lang='en')
